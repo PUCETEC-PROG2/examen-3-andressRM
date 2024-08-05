@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Álbums</title>
+</head>
+<body>
+    <h1>Lista de Álbums</h1>
+    <ul>
+        {% for album in albums %}
+            <li>
+                {{ album.titulo }} - {{ album.artista.nombre }} - {{ album.fecha_lanzamiento }}
+                <a href="{% url 'actualizar_album' album.pk %}">Actualizar</a>
+                <a href="{% url 'eliminar_album' album.pk %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_album' %}">Crear nuevo álbum</a>
+</body>
+</html>

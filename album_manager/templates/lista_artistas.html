@@ -7,7 +7,11 @@
     <h1>Lista de Artistas</h1>
     <ul>
         {% for artista in artistas %}
-            <li>{{ artista.nombre }} - {{ artista.pais_origen }}</li>
+            <li>
+                {{ artista.nombre }} - {{ artista.pais_origen }}
+                <a href="{% url 'actualizar_artista' artista.pk %}">Actualizar</a>
+                <a href="{% url 'eliminar_artista' artista.pk %}">Eliminar</a>
+            </li>
         {% endfor %}
     </ul>
     <a href="{% url 'crear_artista' %}">Crear nuevo artista</a>
