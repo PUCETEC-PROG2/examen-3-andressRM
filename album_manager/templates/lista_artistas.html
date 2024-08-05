@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Artistas</title>
+</head>
+<body>
+    <h1>Lista de Artistas</h1>
+    <ul>
+        {% for artista in artistas %}
+            <li>{{ artista.nombre }} - {{ artista.pais_origen }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_artista' %}">Crear nuevo artista</a>
+</body>
+</html>

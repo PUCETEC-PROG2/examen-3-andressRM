@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi catálogo de discos de música</title>
+    {% load static %}
+</head>
+<body>
+    <h1>Mi catálogo de discos de música</h1>
+    <img src="{% static 'portada.png' %}" alt="Portada del catálogo de música">
+    <br>
+    <a href="{% url 'lista_artistas' %}">Ver lista de artistas</a>
+    <a href="{% url 'crear_artista' %}">Crear un nuevo artista</a>
+</body>
+</html>
