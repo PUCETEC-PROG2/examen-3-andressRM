@@ -2,13 +2,43 @@
 <html>
 <head>
     <title>Crear Álbum</title>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Crear Álbum</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
-    </form>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Catálogo de Música</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista_artistas' %}">Lista de Artistas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'crear_artista' %}">Crear Artista</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista_albums' %}">Lista de Álbums</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'crear_album' %}">Crear Álbum</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container my-4">
+        <h1>Crear Nuevo Álbum</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% crispy form %}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

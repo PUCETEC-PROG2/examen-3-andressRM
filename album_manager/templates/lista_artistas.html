@@ -2,18 +2,51 @@
 <html>
 <head>
     <title>Lista de Artistas</title>
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Lista de Artistas</h1>
-    <ul>
-        {% for artista in artistas %}
-            <li>
-                {{ artista.nombre }} - {{ artista.pais_origen }}
-                <a href="{% url 'actualizar_artista' artista.pk %}">Actualizar</a>
-                <a href="{% url 'eliminar_artista' artista.pk %}">Eliminar</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'crear_artista' %}">Crear nuevo artista</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Catálogo de Música</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista_artistas' %}">Lista de Artistas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'crear_artista' %}">Crear Artista</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista_albums' %}">Lista de Álbums</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'crear_album' %}">Crear Álbum</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container my-4">
+        <h1>Lista de Artistas</h1>
+        <div class="row">
+            {% for artista in artistas %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ artista.nombre }}</h5>
+                            <p class="card-text">País de Origen: {{ artista.pais_origen }}</p>
+                            <a href="{% url 'actualizar_artista' artista.id %}" class="btn btn-primary">Actualizar</a>
+                            <a href="{% url 'eliminar_artista' artista.id %}" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

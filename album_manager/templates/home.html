@@ -3,15 +3,51 @@
 <head>
     <title>Mi catálogo de discos de música</title>
     {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mi catálogo de discos de música</h1>
-    <img src="{% static 'portada.png' %}" alt="Portada del catálogo de música">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Catálogo de Música</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista_artistas' %}">Lista de Artistas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'crear_artista' %}">Crear Artista</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista_albums' %}">Lista de Álbums</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'crear_album' %}">Crear Álbum</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="my-4">Mi catálogo de discos de música</h1>
+    <img src="{% static 'portada.jpg' %}" alt="Portada del catálogo de música" class="img-fluid">
     <br>
-    <a href="{% url 'lista_artistas' %}">Ver lista de artistas</a>
-    <a href="{% url 'crear_artista' %}">Crear un nuevo artista</a>
-    <br>
-    <a href="{% url 'lista_albums' %}">Ver lista de álbumes</a>
-    <a href="{% url 'crear_album' %}">Crear un nuevo álbum</a>
+    <a href="{% url 'lista_artistas' %}" class="btn btn-primary">Ver lista de artistas</a>
+    <a href="{% url 'crear_artista' %}" class="btn btn-success">Crear un nuevo artista</a>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
